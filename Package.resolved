@@ -1,0 +1,24 @@
+{
+  "originHash" : "4c3afdb21cf746d62546ecfa77a6ed24769a47ff2456335dca1819cba6e0df6e",
+  "pins" : [
+    {
+      "identity" : "melistorecore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andresduke024/MELIStoreCore",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7f0c1f265a962eec5592d1d9708b6d4a8db48c79"
+      }
+    },
+    {
+      "identity" : "swift-dependency-injector",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andresduke024/swift-dependency-injector",
+      "state" : {
+        "revision" : "c13d93468689ac92ec1ac856ce94d73f242272cb",
+        "version" : "2.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
