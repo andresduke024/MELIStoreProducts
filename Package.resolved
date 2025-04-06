@@ -1,5 +1,5 @@
 {
-  "originHash" : "4c3afdb21cf746d62546ecfa77a6ed24769a47ff2456335dca1819cba6e0df6e",
+  "originHash" : "714ebe07abbbbac947a9bed779f3a724715f3c6b3664c2c3b532299de28e47de",
   "pins" : [
     {
       "identity" : "melistorecore",
@@ -8,6 +8,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "7f0c1f265a962eec5592d1d9708b6d4a8db48c79"
+      }
+    },
+    {
+      "identity" : "melistoredesignsystem",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andresduke024/MELIStoreDesignSystem",
+      "state" : {
+        "branch" : "main",
+        "revision" : "418f29c970b2fcc6563dfbc9ce23299cc93f0aee"
       }
     },
     {
