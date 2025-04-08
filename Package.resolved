@@ -1,13 +1,31 @@
 {
-  "originHash" : "4c3afdb21cf746d62546ecfa77a6ed24769a47ff2456335dca1819cba6e0df6e",
+  "originHash" : "8af700ddc14e448c7bd9b0fa971e33094e9b6bcb758a1f408a2440e73cb2bfd3",
   "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
+        "version" : "5.10.2"
+      }
+    },
     {
       "identity" : "melistorecore",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/andresduke024/MELIStoreCore",
       "state" : {
-        "branch" : "main",
-        "revision" : "7f0c1f265a962eec5592d1d9708b6d4a8db48c79"
+        "branch" : "develop",
+        "revision" : "c7af1a7455d2b7bf556193e69dc2510c50fe9117"
+      }
+    },
+    {
+      "identity" : "melistoredesignsystem",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andresduke024/MELIStoreDesignSystem",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "2c124aa90603bfd35e427869c54b2d7906a7b32f"
       }
     },
     {
