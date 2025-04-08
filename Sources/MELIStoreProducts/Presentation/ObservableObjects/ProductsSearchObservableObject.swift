@@ -19,7 +19,7 @@ final class ProductsSearchObservableObject {
     
     @ObservationIgnored
     @Inject
-    private var plpProductsMapper: PLPProductsMapper
+    private var plpProductsMapper: PLPProductsUIMapper
     
     @ObservationIgnored
     private var currentSearchId: String = ""
@@ -61,7 +61,7 @@ final class ProductsSearchObservableObject {
             
             defer { isLoadingProducts = false }
             
-            isLoadingProducts.toggle()
+            isLoadingProducts = true
             
             let data = ProductsSearchEntity(searchId: currentSearchId, words: searchText)
             let results = try await searchProductsByWordsUseCase.invoke(data: data)

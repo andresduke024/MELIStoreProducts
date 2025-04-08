@@ -31,16 +31,23 @@ struct ProductsSearchResultsOrganism: View {
     }
     
     var body: some View {
-        if let error {
-            ProductSearchErrorOrganism(error: error)
-                .padding(.vertical, DSSpacing.spacing24)
-        } else {
-            ProductsListOrganism(
-                items: products,
-                isLoadingItems: isLoading,
-                onItemSelected: onItemSelected,
-                onItemsBottomReached: onItemsBottomReached
-            )
-        }
+        if error != nil { errorOrganism }
+        else { listOrganism }
+    }
+    
+    @ViewBuilder
+    private var errorOrganism: some View {
+        ProductSearchErrorOrganism(error: error ?? .unknown)
+            .padding(.vertical, DSSpacing.spacing24)
+    }
+    
+    @ViewBuilder
+    private var listOrganism: some View {
+        ProductsListOrganism(
+            items: products,
+            isLoadingItems: isLoading,
+            onItemSelected: onItemSelected,
+            onItemsBottomReached: onItemsBottomReached
+        )
     }
 }

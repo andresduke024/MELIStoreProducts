@@ -17,7 +17,12 @@ struct ProductDetailsRemoteDataSource: ProductDetailsRemoteDataSourceProtocol {
             endpoint: ModuleEndpoints.details(id: request.id),
             requiresAuthentication: true,
             queryParams: nil,
-            requestErrorMapper: nil
+            requestErrorMapper: { error in
+                return switch error {
+                case .notFound: ProductDetailsError.invalidData
+                default: ProductDetailsError.unknown
+                }
+            }
         )
     }
 }

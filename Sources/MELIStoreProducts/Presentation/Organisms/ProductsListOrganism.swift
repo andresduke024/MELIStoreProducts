@@ -32,12 +32,7 @@ struct ProductsListOrganism: View {
         ScrollView {
             LazyVStack {
                 ForEach(items) { item in
-                    ListItemOrganism(
-                        image: item.image,
-                        title: item.name,
-                        onPress: { onItemSelected(item) }
-                    )
-                    .padding(.vertical, DSSpacing.spacing6)
+                    listItemOrganism(item)
                 }
                 
                 Color.clear.onAppear {
@@ -45,14 +40,26 @@ struct ProductsListOrganism: View {
                 }
             }
 
-            if isLoadingItems {
-                ProgressView()
-                    .padding(DSSpacing.spacing26)
-            }
+            if isLoadingItems { loading }
         }
         .edgesIgnoringSafeArea(.bottom)
         .padding()
-
+    }
+    
+    @ViewBuilder
+    private func listItemOrganism(_ item: PLPProductUIModel) -> some View {
+        ListItemOrganism(
+            image: item.image,
+            title: item.name,
+            onPress: { onItemSelected(item) }
+        )
+        .padding(.vertical, DSSpacing.spacing6)
+    }
+    
+    @ViewBuilder
+    private var loading: some View {
+        ProgressView()
+            .padding(DSSpacing.spacing26)
     }
 }
 

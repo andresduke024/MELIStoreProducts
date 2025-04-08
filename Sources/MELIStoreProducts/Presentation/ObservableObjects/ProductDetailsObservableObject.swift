@@ -17,17 +17,29 @@ final class ProductDetailsObservableObject {
     private var getProductDetailsUseCase: GetProductDetailsUseCase
     
     @ObservationIgnored
+    @Inject
+    private var detailsMapper: ProductDetailsUIMapper
+    
+    @ObservationIgnored
     private let id: String
     
-    init(id: String) {
-        self.id = id
-    }
+    var product: ProductDetailsUIModel?
+    
+    var detailsError: ProductDetailsError?
+    
+    init(id: String) { self.id = id }
     
     func loadDetails() async {
         do {
+            guard product == nil else { return }
+            
             let result = try await getProductDetailsUseCase.invoke(id)
+            
+            product = detailsMapper.map(result)
+        } catch let error as ProductDetailsError {
+            detailsError = error
         } catch {
-            // TODO: Handle errors
+            detailsError = .unknown
         }
     }
 }

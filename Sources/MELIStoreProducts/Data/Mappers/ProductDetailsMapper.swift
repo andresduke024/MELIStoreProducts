@@ -10,6 +10,12 @@ import SwiftDependencyInjector
 
 struct ProductDetailsMapper: BaseMapperProtocol {
 
+    @Inject
+    private var attributesMapper: ProductAttributesMapper
+
+    @Inject
+    private var picturesMapper: ProductPicturesMapper
+
     func mapRequest(
         _ input: String
     ) throws -> ProductDetailsRequest {
@@ -19,6 +25,27 @@ struct ProductDetailsMapper: BaseMapperProtocol {
     func mapResponse(
         _ input: ProductDetailsResponse
     ) throws -> ProductDetailsEntity {
-        ProductDetailsEntity()
+        let attributes = try attributesMapper.mapResponse(input.attributes)
+        let pictures = try picturesMapper.mapResponse(input.pictures)
+        let features = (input.mainFeatures ?? []).compactMap { $0.text }
+
+        let details = ProductDetailsEntity(
+            id: input.id,
+            status: input.status ?? "",
+            childrenIDs: input.childrenIDS ?? [],
+            domainId: input.domainID,
+            permalink: input.permalink ?? "",
+            name: input.name,
+            familyName: input.familyName,
+            type: "",
+            pictures: pictures,
+            mainFeatures: features,
+            attributes: attributes,
+            shortDescription: input.shortDescription?.content ?? ""
+        )
+        
+        guard let details else { throw ProductDetailsError.invalidData }
+        
+        return details
     }
 }

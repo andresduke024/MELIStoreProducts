@@ -5,11 +5,13 @@
 //  Created by Andres Duque on 5/04/25.
 //
 
-struct PLPProductsMapper {
+import MELIStoreCore
+
+struct PLPProductsUIMapper: UIMapper {
     func map(
-        _ input: [PLPProductEntity]
+        _ entity: [PLPProductEntity]
     ) -> [PLPProductUIModel] {
-        input.map { item in
+        entity.map { item in
             PLPProductUIModel(
                 id: item.id,
                 name: item.name,

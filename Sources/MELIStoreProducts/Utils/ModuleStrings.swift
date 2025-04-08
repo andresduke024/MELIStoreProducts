@@ -13,4 +13,7 @@ struct ModuleStrings {
     
     static let productNotFoundErrorMessage = "Ups… no encontramos \n resultados."
     static let generalErrorMessage = "Ups… Ocurrió un error con tu solicitud"
+    
+    static let aboutTitle = "Acerca del producto"
+    static let featuresTitle = "Características"
 }
