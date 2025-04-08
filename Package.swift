@@ -26,6 +26,9 @@ let package = Package(
                 .product(name: "SwiftDependencyInjector", package: "swift-dependency-injector"),
                 .product(name: "MELIStoreCore", package: "MELIStoreCore"),
                 .product(name: "MELIStoreDesignSystem", package: "MELIStoreDesignSystem")
+            ],
+            resources: [
+                .process("Presentation/Resources")
             ]
         ),
         .testTarget(

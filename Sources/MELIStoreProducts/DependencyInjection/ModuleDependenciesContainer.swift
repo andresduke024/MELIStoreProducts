@@ -37,6 +37,10 @@ struct ModuleDependenciesContainer: DependenciesContainer {
             ProductSearchMapper()
         }
         
+        Injector.global.register(ProductDetailsMapper.self) {
+            ProductDetailsMapper()
+        }
+        
         // Presentation layer mappers
         Injector.global.register(PLPProductsMapper.self) {
             PLPProductsMapper()
@@ -46,6 +50,10 @@ struct ModuleDependenciesContainer: DependenciesContainer {
     private func registerDataSources() {
         Injector.global.register(ProductsSearchRemoteDataSourceProtocol.self) {
             ProductsSearchRemoteDataSource()
+        }
+        
+        Injector.global.register(ProductDetailsRemoteDataSourceProtocol.self) {
+            ProductDetailsRemoteDataSource()
         }
     }
     

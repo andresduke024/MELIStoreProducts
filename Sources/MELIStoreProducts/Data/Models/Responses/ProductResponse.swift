@@ -14,7 +14,7 @@ struct ProductResponse: Codable {
     let settings: ProductSettingsResponse?
     let name: String?
     let attributes: [ProductAttributeResponse]?
-    let pictures: [PictureResponse]?
+    let pictures: [ProductPictureResponse]?
     let childrenIDS: [String]?
     let qualityType: String?
     let priority: String?

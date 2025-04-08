@@ -12,7 +12,8 @@ struct PLPProductsMapper {
         input.map { item in
             PLPProductUIModel(
                 id: item.id,
-                name: item.name
+                name: item.name,
+                image: item.pictures.first?.url ?? ""
             )
         }
     }

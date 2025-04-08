@@ -10,6 +10,7 @@ import Observation
 import SwiftDependencyInjector
 
 @Observable
+@MainActor
 final class ProductsSearchObservableObject {
     
     @ObservationIgnored
@@ -29,31 +30,60 @@ final class ProductsSearchObservableObject {
     
     var products: [PLPProductUIModel] = []
     
+    var searchError: ProductSearchError? = nil
+    
+    init(searchText: String) {
+        self.searchText = searchText
+    }
+    
     func startSearch() async {
         guard !searchText.isEmpty else { return }
         
         currentSearchId = UUID().uuidString
         products.removeAll()
+        searchError = nil
         
         await loadProducts()
     }
     
-    func loadProducts() async {
+    func handleProductsLoad() async {
+        if currentSearchId.isEmpty {
+            await startSearch()
+            return
+        }
+        
+        await loadProducts()
+    }
+    
+    private func loadProducts() async {
         do {
-            guard !isLoadingProducts else { return }
+            guard !isLoadingProducts, !searchText.isEmpty else { return }
+            
+            defer { isLoadingProducts = false }
             
             isLoadingProducts.toggle()
             
             let data = ProductsSearchEntity(searchId: currentSearchId, words: searchText)
             let results = try await searchProductsByWordsUseCase.invoke(data: data)
             
-            let newProducts = plpProductsMapper.map(results)
-            
-            products.append(contentsOf: newProducts)
-            
-            isLoadingProducts.toggle()
+            onNewProductsLoaded(results)
+        } catch let error as ProductSearchError {
+            searchError = error
         } catch {
-            // TODO: Handle error escenario
+            searchError = .unknown
+        }
+    }
+    
+    private func onNewProductsLoaded(_ results: [PLPProductEntity]) {
+        let newProducts = plpProductsMapper.map(results)
+        
+        if !results.isEmpty {
+            products.append(contentsOf: newProducts)
+            return
+        }
+        
+        if products.isEmpty {
+            searchError = .notFound
         }
     }
 }

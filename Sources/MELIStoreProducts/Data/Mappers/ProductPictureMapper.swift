@@ -9,7 +9,7 @@ import MELIStoreCore
 
 struct ProductPicturesMapper: BaseResponseMapperProtocol {
     func mapResponse(
-        _ input: [PictureResponse]?
+        _ input: [ProductPictureResponse]?
     ) throws -> [ProductPictureEntity] {
         return mapOptionalList(input) { item in
             ProductPictureEntity(

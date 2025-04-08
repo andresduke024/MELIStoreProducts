@@ -7,4 +7,6 @@
 
 protocol ProductsRepositoryProtocol: Sendable {
     func search(_ entity: ProductsSearchEntity) async throws -> [PLPProductEntity]
+    
+    func get(_ id: String) async throws -> ProductDetailsEntity
 }

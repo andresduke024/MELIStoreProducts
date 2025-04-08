@@ -18,7 +18,13 @@ struct ProductsSearchRemoteDataSource: ProductsSearchRemoteDataSourceProtocol {
         return try await httpManager.get(
             endpoint: ModuleEndpoints.search,
             requiresAuthentication: true,
-            queryParams: params
+            queryParams: params,
+            requestErrorMapper: { error in
+                return switch error {
+                    case .notFound: ProductSearchError.notFound
+                    default: ProductSearchError.failInSearch
+                }
+            }
         )
     }
 }

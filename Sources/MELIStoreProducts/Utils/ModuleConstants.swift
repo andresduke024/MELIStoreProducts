@@ -14,4 +14,5 @@ struct ModuleConstants {
     static let defaultProductSearchSiteId = "MCO"
     static let defaultProductSearchLimit = 15
     static let paginationStartIndex = 0
+    
 }
