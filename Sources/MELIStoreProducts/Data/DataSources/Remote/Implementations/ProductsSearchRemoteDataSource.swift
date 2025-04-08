@@ -17,6 +17,7 @@ struct ProductsSearchRemoteDataSource: ProductsSearchRemoteDataSourceProtocol {
     func call(_ params: ProductsSearchQueryParams) async throws -> ProductSearchResponse {
         return try await httpManager.get(
             endpoint: ModuleEndpoints.search,
+            extraHeaders: nil,
             requiresAuthentication: true,
             queryParams: params,
             requestErrorMapper: { error in

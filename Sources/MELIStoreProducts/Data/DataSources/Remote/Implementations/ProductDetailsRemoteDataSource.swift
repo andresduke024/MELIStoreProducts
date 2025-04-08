@@ -15,6 +15,7 @@ struct ProductDetailsRemoteDataSource: ProductDetailsRemoteDataSourceProtocol {
     func call(_ request: ProductDetailsRequest) async throws -> ProductDetailsResponse {
         return try await httpManager.get(
             endpoint: ModuleEndpoints.details(id: request.id),
+            extraHeaders: nil,
             requiresAuthentication: true,
             queryParams: nil,
             requestErrorMapper: { error in

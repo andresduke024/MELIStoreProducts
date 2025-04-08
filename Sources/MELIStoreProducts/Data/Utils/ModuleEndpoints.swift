@@ -14,7 +14,7 @@ enum ModuleEndpoints: EndpointProtocol {
     var path: String {
         switch self {
             case .search: ModuleConstants.productSearchEndpoint
-            case .details(id: let id): "/\(id)"
+            case .details(id: let id): "\(CoreConstants.pathSeparator)\(id)"
         }
     }
     

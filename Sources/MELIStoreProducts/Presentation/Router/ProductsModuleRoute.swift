@@ -14,7 +14,10 @@ public struct ProductsModuleRoute: View {
     
     public var body: some View {
         PresentationPage()
-            .navigationDestination(for: ModuleRoutes.self, destination: navigateTo(_:))
+            .navigationDestination(
+                for: ModuleRoutes.self,
+                destination: navigateTo(_:)
+            )
     }
     
     @ViewBuilder
