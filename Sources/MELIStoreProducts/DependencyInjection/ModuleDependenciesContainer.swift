@@ -72,11 +72,11 @@ struct ModuleDependenciesContainer: DependenciesContainer {
     }
     
     private func registerUseCases() {
-        Injector.global.register(SearchProductsByWordsUseCase.self) {
+        Injector.global.register(SearchProductsByWordsUseCaseProtocol.self) {
             SearchProductsByWordsUseCase()
         }
         
-        Injector.global.register(GetProductDetailsUseCase.self) {
+        Injector.global.register(GetProductDetailsUseCaseProtocol.self) {
             GetProductDetailsUseCase()
         }
     }

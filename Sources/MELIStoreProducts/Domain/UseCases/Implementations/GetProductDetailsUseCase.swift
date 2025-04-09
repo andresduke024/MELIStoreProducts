@@ -7,7 +7,7 @@
 
 import SwiftDependencyInjector
 
-struct GetProductDetailsUseCase: Sendable {
+struct GetProductDetailsUseCase: GetProductDetailsUseCaseProtocol {
     
     @Inject
     private var repository: ProductsRepositoryProtocol

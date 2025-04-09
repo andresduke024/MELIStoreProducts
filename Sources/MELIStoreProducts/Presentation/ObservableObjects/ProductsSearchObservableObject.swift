@@ -16,7 +16,7 @@ final class ProductsSearchObservableObject {
     
     @ObservationIgnored
     @Inject
-    private var searchProductsByWordsUseCase: SearchProductsByWordsUseCase
+    private var searchProductsByWordsUseCase: SearchProductsByWordsUseCaseProtocol
     
     @ObservationIgnored
     @Inject
@@ -69,9 +69,9 @@ final class ProductsSearchObservableObject {
             
             onNewProductsLoaded(results)
         } catch let error as ProductSearchError {
-            searchError = error
+            onError(error)
         } catch {
-            searchError = .unknown
+            onError(.unknown)
         }
     }
     
@@ -86,5 +86,11 @@ final class ProductsSearchObservableObject {
         if products.isEmpty {
             searchError = .notFound
         }
+    }
+    
+    private func onError(_ error: ProductSearchError) {
+        if !products.isEmpty { return }
+        
+        searchError = error
     }
 }

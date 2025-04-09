@@ -21,6 +21,7 @@ final class GetProductDetailsUseCaseTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        injector.destroy()
         injector = nil
     }
 

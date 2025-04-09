@@ -21,6 +21,7 @@ final class SearchProductsByWordsUseCaseTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        injector.destroy()
         injector = nil
     }
 

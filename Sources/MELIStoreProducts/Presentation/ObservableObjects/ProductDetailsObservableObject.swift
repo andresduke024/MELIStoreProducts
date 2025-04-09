@@ -14,7 +14,7 @@ final class ProductDetailsObservableObject {
     
     @ObservationIgnored
     @Inject
-    private var getProductDetailsUseCase: GetProductDetailsUseCase
+    private var getProductDetailsUseCase: GetProductDetailsUseCaseProtocol
     
     @ObservationIgnored
     @Inject

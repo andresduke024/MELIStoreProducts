@@ -53,6 +53,7 @@ final class ProductsRepositoryTests: XCTestCase {
     override func tearDownWithError() throws {
         injector.destroy()
         Injector.global.destroy()
+        injector = nil
         sut = nil
     }
     

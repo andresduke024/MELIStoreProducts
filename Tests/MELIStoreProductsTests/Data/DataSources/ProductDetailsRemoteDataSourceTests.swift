@@ -31,6 +31,7 @@ final class ProductDetailsRemoteDataSourceTests: XCTestCase {
 
     override func tearDownWithError() throws {
         injector.destroy()
+        injector = nil
     }
 
     private func buildSUT(
