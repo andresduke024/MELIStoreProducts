@@ -16,4 +16,6 @@ struct ModuleStrings {
     
     static let aboutTitle = "Acerca del producto"
     static let featuresTitle = "Características"
+    
+    static let emptySearchError = "Por favor ingresa algún valor."
 }

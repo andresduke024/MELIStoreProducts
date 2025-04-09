@@ -7,6 +7,7 @@
 
 import Foundation
 import Observation
+import MELIStoreCore
 import SwiftDependencyInjector
 
 @Observable
@@ -24,7 +25,7 @@ final class ProductsSearchObservableObject {
     @ObservationIgnored
     private var currentSearchId: String = ""
     
-    var searchText: String = ""
+    var searchText: FieldContentWrapper
     
     var isLoadingProducts: Bool = false
     
@@ -33,11 +34,11 @@ final class ProductsSearchObservableObject {
     var searchError: ProductSearchError? = nil
     
     init(searchText: String) {
-        self.searchText = searchText
+        self.searchText = SearchTextContentWrapper.value(searchText)
     }
     
     func startSearch() async {
-        guard !searchText.isEmpty else { return }
+        guard !searchText.content.isEmpty else { return }
         
         currentSearchId = UUID().uuidString
         products.removeAll()
@@ -57,13 +58,13 @@ final class ProductsSearchObservableObject {
     
     private func loadProducts() async {
         do {
-            guard !isLoadingProducts, !searchText.isEmpty else { return }
+            guard !isLoadingProducts, !searchText.content.isEmpty else { return }
             
             defer { isLoadingProducts = false }
             
             isLoadingProducts = true
             
-            let data = ProductsSearchEntity(searchId: currentSearchId, words: searchText)
+            let data = ProductsSearchEntity(searchId: currentSearchId, words: searchText.content)
             let results = try await searchProductsByWordsUseCase.invoke(data: data)
             
             onNewProductsLoaded(results)

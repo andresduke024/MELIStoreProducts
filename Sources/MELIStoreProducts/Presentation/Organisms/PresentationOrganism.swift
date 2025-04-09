@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MELIStoreCore
 import MELIStoreDesignSystem
 
 struct PresentationOrganism: View {
@@ -13,7 +14,7 @@ struct PresentationOrganism: View {
     private var theme: ThemeManager
     
     @State
-    private var searchText: String = ""
+    private var searchText: FieldContentWrapper = SearchTextContentWrapper.value()
     
     private let onSearch: (String) -> Void
     
@@ -34,7 +35,7 @@ struct PresentationOrganism: View {
             search
         }
         .onDisappear {
-            searchText = ""
+            searchText = SearchTextContentWrapper.value()
         }
     }
     
@@ -66,8 +67,16 @@ struct PresentationOrganism: View {
     @ViewBuilder
     private var search: some View {
         SearchTextFieldMolecule(
-            text: $searchText,
-            onCommit: { onSearch(searchText) }
+            text: $searchText.content,
+            onEditingChange: { _ in
+                searchText.validate(always: false)
+            },
+            onCommit: {
+                guard searchText.validate() else { return }
+                
+                onSearch(searchText.content)
+            },
+            error: searchText.error
         )
     }
 }

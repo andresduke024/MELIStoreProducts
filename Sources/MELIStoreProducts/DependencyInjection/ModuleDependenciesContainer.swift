@@ -49,6 +49,10 @@ struct ModuleDependenciesContainer: DependenciesContainer {
         Injector.global.register(ProductDetailsUIMapper.self) {
             ProductDetailsUIMapper()
         }
+        
+        Injector.global.register(AttributesUIMapper.self) {
+            AttributesUIMapper()
+        }
     }
     
     private func registerDataSources() {

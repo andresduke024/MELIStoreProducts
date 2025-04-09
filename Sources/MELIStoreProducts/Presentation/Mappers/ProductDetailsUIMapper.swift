@@ -7,29 +7,24 @@
 
 import MELIStoreCore
 import MELIStoreDesignSystem
+import SwiftDependencyInjector
 
 struct ProductDetailsUIMapper: UIMapper {
+    
+    @Inject
+    private var attributesMapper: AttributesUIMapper
+    
     func map(_ entity: ProductDetailsEntity) -> ProductDetailsUIModel {
+        let attributes = attributesMapper.map(entity.attributes)
+        
         return ProductDetailsUIModel(
             id: entity.id,
             description: entity.shortDescription,
             name: entity.name,
             pictures: pictures(entity),
             mainFeatures: features(entity),
-            attributes: attributes(entity)
+            attributes: attributes
         )
-    }
-    
-    private func attributes(
-        _ entity: ProductDetailsEntity
-    ) -> [AttributeUIModel] {
-        entity.attributes.map { attribute in
-            AttributeUIModel(
-                id: attribute.id,
-                name: "\(attribute.name):",
-                description: attribute.valueName
-            )
-        }
     }
     
     private func features(
