@@ -68,7 +68,7 @@ final class ProductsSearchRemoteDataSourceTests: XCTestCase {
 
         // Act / Assert
         await assertThrowsAsyncError(try await sut.call(mockRequest)) { error in
-            let error = try! XCTUnwrap(error as? ProductSearchError)
+            let error = try XCTUnwrap(error as? ProductSearchError)
 
             XCTAssert(error == .notFound)
         }
@@ -84,7 +84,7 @@ final class ProductsSearchRemoteDataSourceTests: XCTestCase {
 
         // Act / Assert
         await assertThrowsAsyncError(try await sut.call(mockRequest)) { error in
-            let error = try! XCTUnwrap(error as? ProductSearchError)
+            let error = try XCTUnwrap(error as? ProductSearchError)
 
             XCTAssert(error == .failInSearch)
         }

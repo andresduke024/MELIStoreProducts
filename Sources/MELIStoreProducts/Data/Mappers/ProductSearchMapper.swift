@@ -27,12 +27,12 @@ struct ProductSearchMapper: BaseMapperProtocol {
 
     func mapResponse(
         _ input: ProductSearchResponse
-    ) throws -> [PLPProductEntity] {
+    ) throws -> [ListProductEntity] {
         return try mapOptionalList(input.results) { item in
             let attributes = try attributesMapper.mapResponse(item.attributes)
             let pictures = try picturesMapper.mapResponse(item.pictures)
             
-            return PLPProductEntity(
+            return ListProductEntity(
                 id: item.id,
                 name: item.name,
                 attributes: attributes,

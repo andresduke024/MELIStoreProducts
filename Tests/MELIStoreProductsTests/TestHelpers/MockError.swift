@@ -7,4 +7,5 @@
 
 enum MockError: Error {
     case invalidType
+    case nilValue
 }

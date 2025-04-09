@@ -66,7 +66,7 @@ final class ProductDetailsRemoteDataSourceTests: XCTestCase {
 
         // Act / Assert
         await assertThrowsAsyncError(try await sut.call(mockRequest)) { error in
-            let error = try! XCTUnwrap(error as? ProductDetailsError)
+            let error = try XCTUnwrap(error as? ProductDetailsError)
 
             XCTAssert(error == .invalidData)
         }
@@ -82,7 +82,7 @@ final class ProductDetailsRemoteDataSourceTests: XCTestCase {
 
         // Act / Assert
         await assertThrowsAsyncError(try await sut.call(mockRequest)) { error in
-            let error = try! XCTUnwrap(error as? ProductDetailsError)
+            let error = try XCTUnwrap(error as? ProductDetailsError)
 
             XCTAssert(error == .unknown)
         }

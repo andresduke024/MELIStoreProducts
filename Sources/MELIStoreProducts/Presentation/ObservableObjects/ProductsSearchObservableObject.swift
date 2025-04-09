@@ -19,7 +19,7 @@ final class ProductsSearchObservableObject {
     
     @ObservationIgnored
     @Inject
-    private var plpProductsMapper: PLPProductsUIMapper
+    private var plpProductsMapper: ListProductUIMapper
     
     @ObservationIgnored
     private var currentSearchId: String = ""
@@ -28,7 +28,7 @@ final class ProductsSearchObservableObject {
     
     var isLoadingProducts: Bool = false
     
-    var products: [PLPProductUIModel] = []
+    var products: [ListProductUIModel] = []
     
     var searchError: ProductSearchError? = nil
     
@@ -74,7 +74,7 @@ final class ProductsSearchObservableObject {
         }
     }
     
-    private func onNewProductsLoaded(_ results: [PLPProductEntity]) {
+    private func onNewProductsLoaded(_ results: [ListProductEntity]) {
         let newProducts = plpProductsMapper.map(results)
         
         if !results.isEmpty {

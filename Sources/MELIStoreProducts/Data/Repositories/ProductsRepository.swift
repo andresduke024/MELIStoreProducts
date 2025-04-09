@@ -22,7 +22,7 @@ struct ProductsRepository: BaseRepositoryProtocol, ProductsRepositoryProtocol {
     @Inject
     private var productDetailsMapper: ProductDetailsMapper
     
-    func search(_ entity: ProductsSearchEntity) async throws -> [PLPProductEntity] {
+    func search(_ entity: ProductsSearchEntity) async throws -> [ListProductEntity] {
         return try await executeDataSource(
             mapper: productSearchMapper,
             data: entity,

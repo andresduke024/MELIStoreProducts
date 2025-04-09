@@ -42,8 +42,8 @@ struct ModuleDependenciesContainer: DependenciesContainer {
         }
         
         // Presentation layer mappers
-        Injector.global.register(PLPProductsUIMapper.self) {
-            PLPProductsUIMapper()
+        Injector.global.register(ListProductUIMapper.self) {
+            ListProductUIMapper()
         }
         
         Injector.global.register(ProductDetailsUIMapper.self) {

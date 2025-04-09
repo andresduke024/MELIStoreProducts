@@ -11,15 +11,15 @@ import SwiftUI
 
 struct ProductsListOrganism: View {
 
-    private let items: [PLPProductUIModel]
+    private let items: [ListProductUIModel]
     private let isLoadingItems: Bool
-    private let onItemSelected: (PLPProductUIModel) -> Void
+    private let onItemSelected: (ListProductUIModel) -> Void
     private let onItemsBottomReached: () -> Void
 
     init(
-        items: [PLPProductUIModel],
+        items: [ListProductUIModel],
         isLoadingItems: Bool,
-        onItemSelected: @escaping (PLPProductUIModel) -> Void,
+        onItemSelected: @escaping (ListProductUIModel) -> Void,
         onItemsBottomReached: @escaping () -> Void
     ) {
         self.items = items
@@ -47,7 +47,7 @@ struct ProductsListOrganism: View {
     }
     
     @ViewBuilder
-    private func listItemOrganism(_ item: PLPProductUIModel) -> some View {
+    private func listItemOrganism(_ item: ListProductUIModel) -> some View {
         ListItemOrganism(
             image: item.image,
             title: item.name,

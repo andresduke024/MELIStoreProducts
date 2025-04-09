@@ -1,11 +1,11 @@
 //
-//  PLPProductUIModel.swift
+//  ListProductUIModel.swift
 //  MELIStoreProducts
 //
 //  Created by Andres Duque on 5/04/25.
 //
 
-struct PLPProductUIModel: Identifiable {
+struct ListProductUIModel: Identifiable {
     let id: String
     let name: String
     let image: String

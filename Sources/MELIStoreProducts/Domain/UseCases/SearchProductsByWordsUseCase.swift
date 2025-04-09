@@ -15,7 +15,7 @@ struct SearchProductsByWordsUseCase: Sendable {
     @Inject
     private var paginationManager: PaginationManagerProtocol
 
-    func invoke(data: ProductsSearchEntity) async throws -> [PLPProductEntity] {
+    func invoke(data: ProductsSearchEntity) async throws -> [ListProductEntity] {
         let properties = PaginationProperties(id: data.searchId)
 
         return try await paginationManager.start(properties: properties) { newOffset in

@@ -58,7 +58,7 @@ final class ProductsRepositoryTests: XCTestCase {
     
     func testShouldReturnValidResponseOnSearch() async throws {
         // Arrange
-        let mockSearchEntity = ProductsSearchEntity(searchId: "", words: "", nextOffset: 0)
+        let mockSearchEntity = MockProductsSearchEntity.build(searchId: "", words: "", nextOffset: 0)
         
         // Act / Assert
         await assertThrowsNotErrorAsync(try await sut.search(mockSearchEntity))

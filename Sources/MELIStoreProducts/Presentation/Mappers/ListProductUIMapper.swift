@@ -1,5 +1,5 @@
 //
-//  PLPProductMapper.swift
+//  ListProductUIMapper.swift
 //  MELIStoreProducts
 //
 //  Created by Andres Duque on 5/04/25.
@@ -7,12 +7,12 @@
 
 import MELIStoreCore
 
-struct PLPProductsUIMapper: UIMapper {
+struct ListProductUIMapper: UIMapper {
     func map(
-        _ entity: [PLPProductEntity]
-    ) -> [PLPProductUIModel] {
+        _ entity: [ListProductEntity]
+    ) -> [ListProductUIModel] {
         entity.map { item in
-            PLPProductUIModel(
+            ListProductUIModel(
                 id: item.id,
                 name: item.name,
                 image: item.pictures.first?.url ?? ""
