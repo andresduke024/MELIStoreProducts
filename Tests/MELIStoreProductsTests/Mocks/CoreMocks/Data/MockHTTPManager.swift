@@ -38,8 +38,6 @@ struct MockHTTPManager: HTTPManagerProtocol {
         queryParams: (any MELIStoreCore.QueryParamsModelProtocol)?,
         requestErrorMapper: ((MELIStoreCore.RequestError) -> any Error)?
     ) async throws -> T where T: Decodable, T: Sendable {
-        _ = queryParams?.transform()
-        
         return try castResult(
             requestErrorMapper: requestErrorMapper
         )

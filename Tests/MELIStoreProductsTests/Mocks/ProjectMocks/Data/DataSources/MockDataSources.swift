@@ -15,6 +15,9 @@ final class MockProductsSearchRemoteDataSource: ProductsSearchRemoteDataSourcePr
 
 final class MockProductDetailsRemoteDataSource: ProductDetailsRemoteDataSourceProtocol {
     func call(_ request: ProductDetailsRequest) async throws -> ProductDetailsResponse {
-        return MockProductDetailsResponse.build(id: "mock_id")
+        return MockProductDetailsResponse.build(
+            id: "mock_id",
+            name: "mock_name"
+        )
     }
 }

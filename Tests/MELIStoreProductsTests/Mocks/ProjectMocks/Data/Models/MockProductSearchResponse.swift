@@ -9,12 +9,13 @@
 
 struct MockProductSearchResponse {
     static func build(
-        keywords: String? = nil
+        keywords: String? = nil,
+        results: [ProductResponse]? = []
     ) -> ProductSearchResponse {
         ProductSearchResponse(
             keywords: keywords,
             paging: nil,
-            results: [],
+            results: results,
             usedAttributes: [],
             queryType: nil
         )

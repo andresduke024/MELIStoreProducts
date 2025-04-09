@@ -52,6 +52,8 @@ final class ProductsRepositoryTests: XCTestCase {
 
     override func tearDownWithError() throws {
         injector.destroy()
+        Injector.global.destroy()
+        sut = nil
     }
     
     func testShouldReturnValidResponseOnSearch() async throws {

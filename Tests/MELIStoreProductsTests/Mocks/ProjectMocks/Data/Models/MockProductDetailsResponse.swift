@@ -9,14 +9,15 @@
 
 struct MockProductDetailsResponse {
     static func build(
-        id: String? = nil
+        id: String? = nil,
+        name: String? = nil
     ) -> ProductDetailsResponse {
         ProductDetailsResponse(
             id: id,
             status: "",
             domainID: "",
             permalink: "",
-            name: "",
+            name: name,
             familyName: "",
             pickers: [],
             pictures: [],
