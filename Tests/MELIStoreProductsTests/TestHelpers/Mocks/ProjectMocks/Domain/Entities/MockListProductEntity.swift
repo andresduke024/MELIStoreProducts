@@ -9,13 +9,15 @@
 
 struct MockListProductEntity {
     static func build(
-        id: String? = nil
+        id: String? = nil,
+        name: String? = nil,
+        pictures: [ProductPictureEntity]? = nil,
     ) -> ListProductEntity? {
         ListProductEntity(
             id: id,
-            name: "",
+            name: name ?? "",
             attributes: [],
-            pictures: []
+            pictures: pictures ?? []
         )
     }
 }

@@ -72,7 +72,7 @@ final class ProductAttributesMapperTests: XCTestCase {
         let result = try sut.mapResponse(mockResponses)
         
         // Assert
-        XCTAssert(result.count == 2)
+        XCTAssert(result.count == mockResponses.count)
         XCTAssert(result.contains(where: { $0.id == id1 }))
         XCTAssert(result.contains(where: { $0.id == id2 }))
     }

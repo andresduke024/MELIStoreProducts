@@ -9,7 +9,11 @@
 
 struct MockProductDetailsEntity {
     static func build(
-        id: String? = nil
+        id: String? = nil,
+        name: String? = nil,
+        shortDescription: String? = nil,
+        pictures: [ProductPictureEntity]? = nil,
+        mainFeatures: [String]? = nil
     ) -> ProductDetailsEntity? {
         ProductDetailsEntity(
             id: id,
@@ -17,13 +21,13 @@ struct MockProductDetailsEntity {
             childrenIDs: [],
             domainId: "",
             permalink: "",
-            name: "",
+            name: name ?? "",
             familyName: "",
             type: "",
-            pictures: [],
-            mainFeatures: [],
+            pictures: pictures ?? [],
+            mainFeatures: mainFeatures ?? [],
             attributes: [],
-            shortDescription: ""
+            shortDescription: shortDescription ?? ""
         )
     }
 }
