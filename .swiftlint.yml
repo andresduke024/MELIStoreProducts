@@ -7,6 +7,7 @@ excluded:
   - Pods
   - .build
   - Packages
+  - Tests
 
 # Configuraciones generales
 opt_in_rules:
