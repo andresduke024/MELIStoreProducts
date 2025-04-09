@@ -30,13 +30,20 @@ struct ProductsListPage: View {
         VStack(spacing: DSSpacing.spacing8) {
             SearchHeaderOrganism(
                 title: ModuleStrings.appName,
-                searchText: $observableObject.searchText,
+                searchError: observableObject.searchText.error,
+                searchText: $observableObject.searchText.content,
                 onBackPress: {
                     router.pop()
                 },
+                onSearchChanged: { _ in
+                    observableObject.searchText.validate(always: false)
+                },
                 onSearchCommit: {
+                    guard observableObject.searchText.validate() else { return }
+                    
                     Task { await observableObject.startSearch() }
-                }
+                },
+                
             )
             
             ProductsSearchResultsOrganism(

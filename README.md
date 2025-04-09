@@ -1,6 +1,17 @@
-# MELIStoreProducts
+# 🛒 MELI Store - Products Module
 
 **MELIStoreProducts** es un módulo desarrollado en Swift que forma parte de la aplicación MELIStore. Este módulo se encarga de gestionar la lógica relacionada con los productos dentro de la aplicación, proporcionando funcionalidades clave para la visualización y manipulación de información de productos.
+
+## 📦 Descripción
+
+El módulo `ProductsModule` permite realizar búsquedas de productos por palabra clave, visualizar listados con paginación automática y acceder a los detalles de cada producto.
+
+Incluye:
+- UI reactiva basada en `SwiftUI` y `Observation`.
+- Inyección de dependencias con `SwiftDependencyInjector`.
+- Mapeadores desacoplados para convertir datos entre capas.
+- Gestión de paginación y errores personalizados.
+
 
 ## Características
 

@@ -10,17 +10,17 @@ import MELIStoreDesignSystem
 
 struct ProductsSearchResultsOrganism: View {
     
-    private let products: [PLPProductUIModel]
+    private let products: [ListProductUIModel]
     private let error: ProductSearchError?
     private let isLoading: Bool
-    private let onItemSelected: (PLPProductUIModel) -> Void
+    private let onItemSelected: (ListProductUIModel) -> Void
     private let onItemsBottomReached: () -> Void
     
     init(
-        products: [PLPProductUIModel],
+        products: [ListProductUIModel],
         error: ProductSearchError?,
         isLoading: Bool,
-        onItemSelected: @escaping (PLPProductUIModel) -> Void,
+        onItemSelected: @escaping (ListProductUIModel) -> Void,
         onItemsBottomReached: @escaping () -> Void
     ) {
         self.products = products

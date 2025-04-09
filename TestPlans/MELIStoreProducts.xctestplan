@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "8E01562F-1086-436E-B2C5-6C63C796A9C7",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "MELIStoreProductsTests",
+        "name" : "MELIStoreProductsTests"
+      }
+    }
+  ],
+  "version" : 1
+}

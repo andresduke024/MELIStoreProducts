@@ -5,6 +5,10 @@
 //  Created by Andres Duque on 7/04/25.
 //
 
+/// Conjunto de cadenas estáticas utilizadas dentro del módulo de productos.
+///
+/// `ModuleStrings` centraliza los textos mostrados en la UI del módulo para facilitar su localización,
+/// mantenimiento y traducción futura.
 struct ModuleStrings {
     static let appName = "MELI Store"
     
@@ -16,4 +20,6 @@ struct ModuleStrings {
     
     static let aboutTitle = "Acerca del producto"
     static let featuresTitle = "Características"
+    
+    static let emptySearchError = "Por favor ingresa algún valor."
 }

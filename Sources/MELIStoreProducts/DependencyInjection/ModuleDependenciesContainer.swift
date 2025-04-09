@@ -42,12 +42,16 @@ struct ModuleDependenciesContainer: DependenciesContainer {
         }
         
         // Presentation layer mappers
-        Injector.global.register(PLPProductsUIMapper.self) {
-            PLPProductsUIMapper()
+        Injector.global.register(ListProductUIMapper.self) {
+            ListProductUIMapper()
         }
         
         Injector.global.register(ProductDetailsUIMapper.self) {
             ProductDetailsUIMapper()
+        }
+        
+        Injector.global.register(AttributesUIMapper.self) {
+            AttributesUIMapper()
         }
     }
     
@@ -68,11 +72,11 @@ struct ModuleDependenciesContainer: DependenciesContainer {
     }
     
     private func registerUseCases() {
-        Injector.global.register(SearchProductsByWordsUseCase.self) {
+        Injector.global.register(SearchProductsByWordsUseCaseProtocol.self) {
             SearchProductsByWordsUseCase()
         }
         
-        Injector.global.register(GetProductDetailsUseCase.self) {
+        Injector.global.register(GetProductDetailsUseCaseProtocol.self) {
             GetProductDetailsUseCase()
         }
     }

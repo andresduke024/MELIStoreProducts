@@ -7,7 +7,7 @@
 
 import MELIStoreDesignSystem
 
-struct ProductDetailsUIModel: Identifiable {
+struct ProductDetailsUIModel: Identifiable, Sendable {
     let id: String
     let description: String
     let name: String
