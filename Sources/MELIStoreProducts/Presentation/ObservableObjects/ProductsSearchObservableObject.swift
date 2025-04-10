@@ -41,6 +41,8 @@ final class ProductsSearchObservableObject {
     /// Flag que indica si los productos se están cargando.
     var isLoadingProducts: Bool = false
     
+    var bottomReachedMessage: String?
+    
     /// Productos obtenidos de la búsqueda, listos para mostrar en UI.
     var products: [ListProductUIModel] = []
     
@@ -61,6 +63,7 @@ final class ProductsSearchObservableObject {
         currentSearchId = UUID().uuidString
         products.removeAll()
         searchError = nil
+        bottomReachedMessage = nil
         
         await loadProducts()
     }
@@ -102,6 +105,7 @@ final class ProductsSearchObservableObject {
         let newProducts = plpProductsMapper.map(results)
         
         if !results.isEmpty {
+            bottomReachedMessage = nil
             products.append(contentsOf: newProducts)
             return
         }
@@ -115,8 +119,16 @@ final class ProductsSearchObservableObject {
     ///
     /// - Parameter error: Error específico de búsqueda.
     private func onError(_ error: ProductSearchError) {
-        if !products.isEmpty { return }
+        if products.isEmpty {
+            searchError = error
+            return
+        }
         
-        searchError = error
+        bottomReachedMessage = switch error {
+        case .notFound:
+            ModuleStrings.notMoreProductsToLoad
+        default:
+            ModuleStrings.errorLoadingProducts
+        }
     }
 }

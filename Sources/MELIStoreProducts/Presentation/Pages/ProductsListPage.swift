@@ -50,6 +50,7 @@ struct ProductsListPage: View {
                 products: observableObject.products,
                 error: observableObject.searchError,
                 isLoading: observableObject.isLoadingProducts,
+                bottomReachedMessage: observableObject.bottomReachedMessage,
                 onItemSelected: { product in
                     let newDestination = ModuleRoutes.pdp(id: product.id)
                     router.push(newDestination)
@@ -58,6 +59,7 @@ struct ProductsListPage: View {
                     Task { await observableObject.handleProductsLoad() }
                 }
             )
+            
             
             Spacer()
         }
