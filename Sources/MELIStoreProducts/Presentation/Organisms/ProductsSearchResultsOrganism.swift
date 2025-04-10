@@ -13,6 +13,7 @@ struct ProductsSearchResultsOrganism: View {
     private let products: [ListProductUIModel]
     private let error: ProductSearchError?
     private let isLoading: Bool
+    private let bottomReachedMessage: String?
     private let onItemSelected: (ListProductUIModel) -> Void
     private let onItemsBottomReached: () -> Void
     
@@ -20,12 +21,14 @@ struct ProductsSearchResultsOrganism: View {
         products: [ListProductUIModel],
         error: ProductSearchError?,
         isLoading: Bool,
+        bottomReachedMessage: String?,
         onItemSelected: @escaping (ListProductUIModel) -> Void,
         onItemsBottomReached: @escaping () -> Void
     ) {
         self.products = products
         self.error = error
         self.isLoading = isLoading
+        self.bottomReachedMessage = bottomReachedMessage
         self.onItemSelected = onItemSelected
         self.onItemsBottomReached = onItemsBottomReached
     }
@@ -43,11 +46,19 @@ struct ProductsSearchResultsOrganism: View {
     
     @ViewBuilder
     private var listOrganism: some View {
-        ProductsListOrganism(
-            items: products,
-            isLoadingItems: isLoading,
-            onItemSelected: onItemSelected,
-            onItemsBottomReached: onItemsBottomReached
-        )
+        VStack {
+            ProductsListOrganism(
+                items: products,
+                isLoadingItems: isLoading,
+                onItemSelected: onItemSelected,
+                onItemsBottomReached: onItemsBottomReached
+            )
+            
+            if let bottomReachedMessage {
+                ListBottomMessageMolecule(
+                    text: bottomReachedMessage
+                )
+            }
+        }
     }
 }

@@ -51,6 +51,7 @@ struct ProductsListOrganism: View {
         ListItemOrganism(
             image: item.image,
             title: item.name,
+            attributes: item.attributes,
             onPress: { onItemSelected(item) }
         )
         .padding(.vertical, DSSpacing.spacing6)

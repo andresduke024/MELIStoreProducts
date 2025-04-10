@@ -22,4 +22,7 @@ struct ModuleStrings {
     static let featuresTitle = "Características"
     
     static let emptySearchError = "Por favor ingresa algún valor."
+    
+    static let notMoreProductsToLoad = "No hay más productos para mostrar."
+    static let errorLoadingProducts = "Ups… Ocurrió un error cargando el resto de productos"
 }
