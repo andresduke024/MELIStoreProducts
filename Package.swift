@@ -14,8 +14,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/andresduke024/swift-dependency-injector", .upToNextMinor(from: "2.0.0")),
-        .package(url: "https://github.com/andresduke024/MELIStoreCore", branch: "develop"),
-        .package(url: "https://github.com/andresduke024/MELIStoreDesignSystem", branch: "develop")
+        .package(url: "https://github.com/andresduke024/MELIStoreCore", .upToNextMinor(from: "0.0.1")),
+        .package(url: "https://github.com/andresduke024/MELIStoreDesignSystem", .upToNextMinor(from: "1.0.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

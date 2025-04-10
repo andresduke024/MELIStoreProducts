@@ -1,5 +1,5 @@
 {
-  "originHash" : "8af700ddc14e448c7bd9b0fa971e33094e9b6bcb758a1f408a2440e73cb2bfd3",
+  "originHash" : "d37f5cfd28ef7425ca315f59c7c19e91286481cd0a9681957daf949136f75a76",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/andresduke024/MELIStoreCore",
       "state" : {
-        "branch" : "develop",
-        "revision" : "378508858f366d0c5b79ba1f48e66e5c255b9a3e"
+        "revision" : "6a12286f3793255225adce21b125ba86606a1938",
+        "version" : "0.0.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/andresduke024/MELIStoreDesignSystem",
       "state" : {
-        "branch" : "develop",
-        "revision" : "e59c18c9b71b04a5d3067ad9f28ce3d4e452e734"
+        "revision" : "c9bf1ef0ddfa02e2a669ee56ecb93144ecd45285",
+        "version" : "1.0.0"
       }
     },
     {
