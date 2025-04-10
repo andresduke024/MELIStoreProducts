@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B87ABC5F-F848-4CD6-BC07-58D94D16B08A",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "MELIStoreProductsTests",
+        "name" : "MELIStoreProductsTests"
+      }
+    }
+  ],
+  "version" : 1
+}
