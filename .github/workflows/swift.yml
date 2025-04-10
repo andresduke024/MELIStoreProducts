@@ -2,23 +2,21 @@ name: Build and Test MELIStoreProducts
 
 on:
   push:
-    branches: [main, develop]
+    branches: ["main", "develop"]
   pull_request:
-    branches: [main, develop]
+    branches: ["main", "develop"]
 
 jobs:
   build-and-test:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Swift 6.1.0
-        uses: swiftdocorg/setup-swift@v1
+      - uses: swift-actions/setup-swift@v2
         with:
           swift-version: "6.1.0"
-
+      - name: Get swift version
+        run: swift --version
+  
       - name: Check Swift version
         run: swift --version
 
